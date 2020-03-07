@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>C&oacute;moSeDice</title>
+        <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" type="text/css" href="_css/home.css">
+        <script src="https://use.fontawesome.com/bc9637f0a8.js"></script>
+        <script src="_js/jquery.min.js"></script>
+        <script src="_js/underscore-min.js"></script>
+    </head>
+    <body>
+
+        <header>
+            <input type="text" placeholder="Type a phrase in Spanish or English..." data-bind="textInput: search">
+        </header>
+
+        <main>
+
+            <div id="welcome" data-bind="visible: !loading() && !results().length">
+                <span class="ntilde">&ntilde;</span>
+                <i class="fa fa-search"></i>
+                <div class="text">Find real-world examples of Spanish-English translations.</div>
+            </div>
+
+            <div id="loading" data-bind="visible: loading">
+                <i class="fa fa-spin fa-circle-o-notch"></i>
+            </div>
+
+            <div id="results" data-bind="visible: !loading() && results().length">
+
+                <ul data-bind="foreach: results()">
+                    <li>
+                        <span class="en" data-bind="html: src"></span
+                        ><span class="sp" data-bind="html: trg"></span>
+                    </li>
+                </ul>
+
+            </div>
+
+        </main>
+
+        <script src="_js/knockout.js"></script>
+        <script>
+            $(function() {
+                var model = {
+                    search: ko.observable(''),
+                    loading: ko.observable(false),
+                    results: ko.observableArray([])
+                };
+
+                model.search.subscribe(function(value) {
+                    model.loading(!!model.search());
+                });
+
+                model.search.subscribe(_.debounce(function(value) {
+                    model.loading(!!model.search());
+
+                    if (!model.search())
+                        return;
+
+                    if (model.activeSearch) {
+                        console.log('cancel');
+                        model.activeSearch.abort();
+                    }
+
+                    model.activeSearch = $.ajax({
+                        url: 'http://translate1.spanishdict.com/dictionary/megaexamples',
+                        data: {
+                            q: model.search(),
+                            pageSize: 25,
+                            page: 1
+                        },
+                        cache: false,
+                        dataType: 'jsonp'
+                    });
+                    model.activeSearch.then(function(data) {
+                        console.log(data);
+                        model.loading(false);
+                        model.results(data.results.examples);
+                        model.activeSearch = null;
+                    });
+                }, 500));
+
+                ko.applyBindings(model);
+            })
+        </script>
+    </body>
+</html>

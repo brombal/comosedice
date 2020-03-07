@@ -1,0 +1,128 @@
+
+@import 'compass';
+
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic';
+
+* { box-sizing: border-box; margin: 0; padding: 0; border: 0; outline: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+body {
+    -webkit-text-size-adjust: 100%; // Prevent font resizing in iOS
+}
+
+html {
+    font: 400 10pt/normal 'Noto Sans', sans-serif;
+    color: #444;
+    background: #FFF;
+}
+
+
+
+header {
+    position: fixed;
+    border-bottom: 1px solid #EEE;
+    height: 60px;
+    width: 100%;
+
+    input {
+        font: inherit;
+        font-size: 1.3em;
+        color: inherit;
+        display: block;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        height: 100%;
+        padding: 0 20px;
+
+        @media (max-width: 480px) {
+            font-size: 11pt;
+        }
+    }
+
+}
+
+
+main {
+    padding-top: 60px;
+
+    #welcome {
+        position: relative;
+
+        .ntilde {
+            position: absolute;
+            top: 15vw;
+            left: 50%;
+            font-size: 26pt;
+            font-weight: 700;
+            color: #CCC;
+            transform: translateX(-50%);
+        }
+        .fa-search {
+            position: absolute;
+            top: 15vw;
+            left: 50%;
+            color: #6394FC;
+            font-size: 54pt;
+            transform: translate(-42%, -14%);
+        }
+        .text {
+            position: relative;
+            top: calc(15vw + 100px);
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            font-size: 16pt;
+            font-style: italic;
+            color: #DDD;
+        }
+    }
+
+    #loading {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        i {
+            font-size: 26pt;
+            color: #CCC;
+        }
+    }
+
+    #results {
+        padding: 30px 0;
+
+        ul {
+            max-width: 800px;
+            margin: 0 auto;
+
+            li {
+                list-style-type: none;
+                padding: 0 10px;
+                border-bottom: 1px solid #EEF3F6;
+
+                > span {
+                    display: inline-block;
+                    width: 50%;
+                    vertical-align: top;
+                    padding: 18px 10px;
+
+                    .megaexamples-highlight {
+                        background: transparentize(#000066, 0.95);
+                    }
+
+                    @media (max-width: 480px) {
+                        display: block;
+                        width: auto;
+
+                        &:first-child {
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}

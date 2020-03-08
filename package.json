@@ -1,0 +1,22 @@
+{
+  "name": "comosedice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass _scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brombal/comosedice.git"
+  },
+  "author": "Alex Brombal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brombal/comosedice/issues"
+  },
+  "homepage": "https://github.com/brombal/comosedice#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

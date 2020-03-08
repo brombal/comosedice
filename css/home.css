@@ -1,0 +1,136 @@
+@import "https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic";
+/* line 6, ../_scss/home.scss */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 8, ../_scss/home.scss */
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 12, ../_scss/home.scss */
+html {
+  font: 400 10pt/normal 'Noto Sans', sans-serif;
+  color: #444;
+  background: #FFF;
+}
+
+/* line 20, ../_scss/home.scss */
+header {
+  position: fixed;
+  border-bottom: 1px solid #EEE;
+  height: 60px;
+  width: 100%;
+}
+/* line 26, ../_scss/home.scss */
+header input {
+  font: inherit;
+  font-size: 1.3em;
+  color: inherit;
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 20px;
+}
+@media (max-width: 480px) {
+  /* line 26, ../_scss/home.scss */
+  header input {
+    font-size: 11pt;
+  }
+}
+
+/* line 45, ../_scss/home.scss */
+main {
+  padding-top: 60px;
+}
+/* line 48, ../_scss/home.scss */
+main #welcome {
+  position: relative;
+}
+/* line 51, ../_scss/home.scss */
+main #welcome .ntilde {
+  position: absolute;
+  top: 15vw;
+  left: 50%;
+  font-size: 26pt;
+  font-weight: 700;
+  color: #CCC;
+  transform: translateX(-50%);
+}
+/* line 60, ../_scss/home.scss */
+main #welcome .fa-search {
+  position: absolute;
+  top: 15vw;
+  left: 50%;
+  color: #6394FC;
+  font-size: 54pt;
+  transform: translate(-42%, -14%);
+}
+/* line 68, ../_scss/home.scss */
+main #welcome .text {
+  position: relative;
+  top: calc(15vw + 100px);
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 16pt;
+  font-style: italic;
+  color: #DDD;
+}
+/* line 80, ../_scss/home.scss */
+main #loading {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* line 86, ../_scss/home.scss */
+main #loading i {
+  font-size: 26pt;
+  color: #CCC;
+}
+/* line 92, ../_scss/home.scss */
+main #results {
+  padding: 30px 0;
+}
+/* line 95, ../_scss/home.scss */
+main #results ul {
+  max-width: 800px;
+  margin: 0 auto;
+}
+/* line 99, ../_scss/home.scss */
+main #results ul li {
+  list-style-type: none;
+  padding: 0 10px;
+  border-bottom: 1px solid #EEF3F6;
+}
+/* line 104, ../_scss/home.scss */
+main #results ul li > span {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+  padding: 18px 10px;
+}
+/* line 110, ../_scss/home.scss */
+main #results ul li > span .megaexamples-highlight {
+  background: rgba(0, 0, 102, 0.05);
+}
+@media (max-width: 480px) {
+  /* line 104, ../_scss/home.scss */
+  main #results ul li > span {
+    display: block;
+    width: auto;
+  }
+  /* line 118, ../_scss/home.scss */
+  main #results ul li > span:first-child {
+    padding-bottom: 0;
+  }
+}
